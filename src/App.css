@@ -22,3 +22,27 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+.Items{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center
+  
+}
+.ItemsChild{
+  display: flex;
+  flex-direction:column;
+  width: 400px;
+}
+nav{
+  font-size: 36px;
+}
+.ItemsChild2{
+  display: flex;
+  flex-direction:row;
+  justify-content: space-around;
+  align-items: center
+}
+.List{
+  color:grey;
+}
