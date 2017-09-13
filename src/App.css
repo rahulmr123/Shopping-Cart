@@ -46,3 +46,10 @@ nav{
 .List{
   color:grey;
 }
+.input{
+  width:40% !important
+}
+.inputContainer{
+  display: flex;
+  justify-content: space-around
+}

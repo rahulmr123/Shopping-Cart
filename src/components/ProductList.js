@@ -3,21 +3,31 @@ import Item from './Item';
 
 import {connect} from 'react-redux';
 class Products extends Component {
-  componentWillMount() {
-    {
-     // this.props.dispatch(load);
-    }
-  }
   render() {
-    //var itemsArray = this.props.product.map((val) => (<Item pro = {val} />))
+    return (
+      <div className="List">
+        {this.props.product.map(val => {
+          console.log('val', val);
+          console.log('min', this.props.filter.min);
+          console.log('max', this.props.filter.max);
 
-    return <div className="List">{this.props.product.map(val => <Item pro={val} quantity={val.quantity}/>)}</div>;
+          if (
+            val.price > this.props.filter.min &&
+            val.price <= this.props.filter.max
+          ) {
+            console.log('match');
+            return <Item pro={val} quantity={val.quantity} />;
+          }
+        })}
+      </div>
+    );
   }
 }
 
 const mapStateToProps = (state, Props) => {
   return {
     product: state.Product,
+    filter: state.Filter,
   };
 };
 

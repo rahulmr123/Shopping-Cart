@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux'
-import {filter} from '../actions'
+import {connect} from 'react-redux';
+import {filter} from '../actions';
 class Filter extends Component {
-
   constructor() {
     super();
     this.test = this.test.bind(this);
@@ -10,7 +9,7 @@ class Filter extends Component {
   }
 
   test() {
-    console.log('uuuu', this.refs.myInput.value)
+    console.log('uuuu', this.refs.myInput.value);
   }
 
   test2(e) {
@@ -19,27 +18,41 @@ class Filter extends Component {
 
   render() {
     return (
-      <div>
-        <input type="number" min="0" max="100" ref = "myInput" onChange={this.props.buttonclick}/>
-        <input type="number" min="0" max="100"onChange={this.props.buttonclick}/>
-        <button onClick = {this.test}>click me</button>
+      <div className="inputContainer">
+        <input
+          className="input"
+          placeholder="filter from"
+          name="min"
+          type="number"
+          min="0"
+          max="100"
+          ref="myInput"
+          onChange={this.props.buttonclick}
+        />
+        <input
+          className="input"
+          name="max"
+          placeholder="filter to"
+          type="number"
+          min="0"
+          max="100"
+          onChange={this.props.buttonclick}
+        />
       </div>
     );
   }
 }
 
-function mapDispatchToProps(dispatch){
-  return  {
-    buttonclick:(ev)=>{
-      let arg = {
-        [ev.target.name]: ev.target.value
-      }
-      dispatch(filter(arg))
-    }
-  }
+function mapDispatchToProps(dispatch) {
+  return {
+    buttonclick: ev => {
+      let value = {
+        [ev.target.name]: parseInt(ev.target.value),
+      };
+
+      dispatch(filter(value));
+    },
+  };
 }
 
-
-
-
-export default connect(null,mapDispatchToProps)(Filter);
+export default connect(null, mapDispatchToProps)(Filter);

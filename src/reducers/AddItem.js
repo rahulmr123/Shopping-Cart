@@ -20,26 +20,12 @@ const addItem = (state = [], action) => {
         });
       }
       return newState;
-    // case 'DECREASE_QUANTITY': {
-    //   var newData = [];
-    //   newData = action.quantity;
-    //   var newQuantity = newData.quantity;
-    //   newQuantity--;
-    //   newData.quantity = newQuantity;
-    //   return state.concat(newData);
-    // }
-
-    // case 'CALCULATE_TOTAL':{
-    //   console.log(action.payload.price)
-
-    // }
-  case 'CHECKOUT':{
-    console.log("hello")
-    var newState = [...state];
-    newState = [];
-    return newState;
-
-  }
+    case 'CHECKOUT': {
+      console.log('hello');
+      var newState = [...state];
+      newState = [];
+      return newState;
+    }
     default: {
       return state;
     }

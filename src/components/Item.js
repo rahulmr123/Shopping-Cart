@@ -10,17 +10,14 @@ class Item extends Component {
   render() {
     return (
       <div className="Items">
-        {/* <div>{this.props.pro.price}</div> */}
         <div className="ItemsChild">
-          {' '}
           <h5>{this.props.pro.productName}</h5>
           <div className="ItemsChild2">
             <p>PRICE {this.props.pro.price}</p>
-            <p>AVAILABLE {this.props.quantity}</p>
+            <p>AVAILABLE {this.props.pro.quantity}</p>
           </div>
         </div>
         <Button waves="light" onClick={this.props.buttonClick}>
-          {' '}
           add to cart
         </Button>
       </div>
@@ -35,7 +32,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         dispatch(decreaseQuantity(ownProps.pro));
         dispatch(calculatetotal(ownProps.pro));
       } else {
-        alert('cant add more');
       }
     },
   };
@@ -43,7 +39,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 function mapStateToProps(state) {
   return {
     product: state.Product,
+    filter: state.Filter,
   };
 }
 
-export default connect(null, mapDispatchToProps)(Item);
+export default connect(mapStateToProps, mapDispatchToProps)(Item);
