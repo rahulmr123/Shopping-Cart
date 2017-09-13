@@ -7,15 +7,13 @@ class Products extends Component {
     return (
       <div className="List">
         {this.props.product.map(val => {
-          console.log('val', val);
-          console.log('min', this.props.filter.min);
-          console.log('max', this.props.filter.max);
+          
 
           if (
             val.price > this.props.filter.min &&
             val.price <= this.props.filter.max
           ) {
-            console.log('match');
+            
             return <Item pro={val} quantity={val.quantity} />;
           }
         })}

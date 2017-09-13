@@ -1,5 +1,5 @@
 export const addtocart = item => {
-  //
+  
   return {
     type: 'ADD_TO_CART',
     payload: item,
@@ -28,7 +28,7 @@ export const checkout = () => {
   };
 };
 export const filter = item => {
-  //console.log(item)
+  
   return {
     type: 'FILTER',
     payload: item,

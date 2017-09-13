@@ -45,10 +45,25 @@ class Filter extends Component {
 
 function mapDispatchToProps(dispatch) {
   return {
-    buttonclick: ev => {
-      let value = {
+        buttonclick: ev => {
+          let value = {}
+      if(ev.target.value!=''){
+     value = {
         [ev.target.name]: parseInt(ev.target.value),
-      };
+      };}
+      else if(ev.target.value==''){
+        if(ev.target.name == 'max'){
+           value = {
+            [ev.target.name]: 100000,
+          };
+        }
+        else{
+     value = {
+            [ev.target.name]: 0,
+          }
+        }
+      }
+
 
       dispatch(filter(value));
     },
