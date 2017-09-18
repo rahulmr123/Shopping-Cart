@@ -4,7 +4,7 @@ const addItem = (state = [], action) => {
       var newState = [...state];
       var a = false;
       for (var i = 0; i < newState.length; i++) {
-        if (newState[i].id === action.payload.id) {
+        if (newState[i].id === action.payload.productID) {
           newState[i].quantity++;
           console.log(newState[i].quantity);
           a = true;
@@ -13,8 +13,8 @@ const addItem = (state = [], action) => {
       }
       if (!a) {
         newState = newState.concat({
-          id: action.payload.id,
-          name: action.payload.productName,
+          id: action.payload.productID,
+          name: action.payload.name,
           price: action.payload.price,
           quantity: 1,
         });

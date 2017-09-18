@@ -1,3 +1,4 @@
+import axios from 'axios'
 export const addtocart = item => {
   
   return {
@@ -34,3 +35,27 @@ export const filter = item => {
     payload: item,
   };
 };
+export const fetchProducts =(item)=>{
+
+  console.log("===>",item)
+
+  return{
+    type:'FETCH',
+   payload:item
+  }
+  
+}
+export const displaycartproducts = (item)=>{
+  return{
+    type:'DISPLAY',
+    payload:item
+  }
+}
+export const sent =(item)=>{
+  axios.post('http://localhost:8080/add_to_cart',item
+    
+
+  ).then((response)=>{
+    console.log(response)
+  })
+}

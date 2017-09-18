@@ -1,4 +1,7 @@
+import axios from 'axios'
 function getItem() {
+  
+    //console.log("===>",response)
   return [
     {
       productName: 'moto g4 plus',
@@ -21,16 +24,21 @@ function getItem() {
   ];
 }
 
-const productArray = (state = getItem(), action) => {
+const productArray = (state = [], action) => {
   switch (action.type) {
     case 'DECREASE_QUANTITY': {
       var newState = [...state];
       for (var i = 0; i < newState.length; i++) {
-        if (action.quantity.id === newState[i].id) {
+        if (action.quantity.productID=== newState[i].productID) {
           newState[i].quantity--;
         }
       }
       return newState;
+    }
+    case 'FETCH':{
+      var newState = [...state];
+      newState = action.payload;
+      return newState
     }
 
     default:
