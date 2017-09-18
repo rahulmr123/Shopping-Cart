@@ -1,4 +1,3 @@
-
 function getItem() {
   return [
     {
@@ -25,19 +24,17 @@ function getItem() {
 const productArray = (state = getItem(), action) => {
   switch (action.type) {
     case 'DECREASE_QUANTITY': {
-     var newState = [...state]
-     for(var i=0;i<newState.length;i++){
-       if(action.quantity.id==newState[i].id){
-         newState[i].quantity--;
-       }
+      var newState = [...state];
+      for (var i = 0; i < newState.length; i++) {
+        if (action.quantity.id === newState[i].id) {
+          newState[i].quantity--;
+        }
       }
-     return newState
-  
-  }
-    
-    default: 
+      return newState;
+    }
+
+    default:
       return state;
-    
   }
 };
 export default productArray;

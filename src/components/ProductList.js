@@ -6,7 +6,7 @@ class Products extends Component {
   render() {
     return (
       <div className="List">
-        {this.props.product.map(val => {
+        {this.props.product.map((val) => {
           
 
           if (
@@ -14,7 +14,7 @@ class Products extends Component {
             val.price <= this.props.filter.max
           ) {
             
-            return <Item pro={val} quantity={val.quantity} />;
+            return <Item pro={val} quantity={val.quantity} />
           }
         })}
       </div>

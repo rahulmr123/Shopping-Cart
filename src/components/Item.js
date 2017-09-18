@@ -4,7 +4,7 @@ import {decreaseQuantity} from '../actions';
 import {calculatetotal} from '../actions';
 import {connect} from 'react-redux';
 import '../App.css';
-import {Button, Icon} from 'react-materialize';
+import {Button} from 'react-materialize';
 
 class Item extends Component {
   render() {
@@ -14,7 +14,7 @@ class Item extends Component {
           <h5>{this.props.pro.productName}</h5>
           <div className="ItemsChild2">
             <p>PRICE {this.props.pro.price}</p>
-            <p>AVAILABLE {this.props.pro.quantity}</p>
+            <p>AVAILABLE {this.props.quantity}</p>
           </div>
         </div>
         <Button waves="light" onClick={this.props.buttonClick}>
