@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import Head from './Header';
-import Pro from './ProductList'
-import Cart from './Cart'
-import Footer from './Footer'
-import Filter from './Filter'
+import Pro from './ProductList';
+import Cart from './Cart';
+import Footer from './Footer';
+import Filter from './Filter';
 
 class App extends Component {
   render() {
