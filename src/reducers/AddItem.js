@@ -1,12 +1,12 @@
 const addItem = (state = [], action) => {
   switch (action.type) {
-    case 'ADD_TO_CART':{
+    case 'ADD_TO_CART': {
       var newState = [...state];
       var a = false;
       for (var i = 0; i < newState.length; i++) {
         if (newState[i].id === action.payload.productID) {
           newState[i].quantity++;
-          console.log(newState[i].quantity);
+          //console.log(newState[i].quantity);
           a = true;
           break;
         }
@@ -22,10 +22,10 @@ const addItem = (state = [], action) => {
       return newState;
     }
     case 'CHECKOUT': {
-      console.log('hello');
-      
+      //console.log('hello');
+
       var newState = [];
-      
+
       return newState;
     }
     default: {

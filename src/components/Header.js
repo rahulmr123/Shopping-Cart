@@ -3,7 +3,7 @@ import {Navbar} from 'react-materialize'
 
 class Header extends Component {
   render() {
-    return <Navbar center>Shopping Cart!</Navbar>
+    return <Navbar >Shopping Cart!</Navbar>
   };
 }
 export default Header

@@ -2,13 +2,16 @@ import React, {Component} from 'react';
 import {checkout} from '../actions';
 import {connect} from 'react-redux';
 import {Button} from 'react-materialize';
+import { Link} from 'react-router-dom';
 class Footer extends Component {
   render() {
     return (
       <div>
         {/* <div>{this.props.pro.price}</div> */}
         <p>TOTAL {this.props.Total}</p>
-        <Button onClick={this.props.buttonClick}>Checkout</Button>
+        <Link to="/checkout">
+          <Button onClick={this.props.buttonClick}>Checkout</Button>
+        </Link>
       </div>
     );
   }

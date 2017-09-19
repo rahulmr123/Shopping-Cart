@@ -35,7 +35,7 @@ function mapDispatchToProps(dispatch, ownProps) {
       let value = {};
       if (ev.target.value !== '') {
         value = {
-          [ev.target.name]: parseInt(ev.target.value,10)
+          [ev.target.name]: parseInt(ev.target.value, 10),
         };
       } else if (ev.target.value === '') {
         if (ev.target.name === 'max') {

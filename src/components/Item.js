@@ -3,9 +3,23 @@ import {addtocart} from '../actions';
 import {decreaseQuantity} from '../actions';
 import {calculatetotal} from '../actions';
 import {connect} from 'react-redux';
+import axios from 'axios';
 import '../App.css';
-import {sent} from '../actions'
+//import {sent} from '../actions'
 import {Button} from 'react-materialize';
+var sent = item => {
+  //console.log('*********');
+  axios
+    .post('http://localhost:8000/add_to_cart', {item: item})
+    .then(
+      response => {
+        console.log(response);
+      },
+      function(err) {
+        console.log(err);
+      }
+    );
+};
 
 class Item extends Component {
   render() {
@@ -29,16 +43,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     buttonClick: () => {
       if (ownProps.pro.quantity > 0) {
-        console.log(ownProps.pro)
-        // var item={
-        //   productID:this.ownProps.pro.id,
-        //   name     :this.ownProps.pro.name,
-        //   quantity :  this. ownProps.pro.quantity,
-        //   price: this.ownprops.pro.price
-        // }
-        // console.log("gdsagag",item)
         dispatch(addtocart(ownProps.pro));
-        dispatch(sent(ownProps.pro))
+        sent(ownProps.pro);
         dispatch(decreaseQuantity(ownProps.pro));
         dispatch(calculatetotal(ownProps.pro));
       } else {
